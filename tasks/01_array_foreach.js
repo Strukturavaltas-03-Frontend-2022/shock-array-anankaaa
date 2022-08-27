@@ -39,7 +39,9 @@ function copyArrayElements(names = ['Ali', 'Géza', 'Botond']) {
  * @desc Ha segítség kell, nézd meg a példafüggvényt feljebb.
  */
 const copyFoodArray = (food = ['milk', 'bread', 'apple']) => {
-    // return;
+    const copyFood = [];
+    food.forEach(food => copyFood.push(food));
+    return copyFood;
 }
 
 /**
@@ -55,13 +57,13 @@ const copyFoodArray = (food = ['milk', 'bread', 'apple']) => {
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
  */
 const findNamesWithA = (names = ['Bill', 'Anna']) => {
-    // 
+    const namesWithA = [];
     names.forEach( name => {
         if (name.includes('a')) {
             namesWithA.push(name);
         }
     });
-    // 
+    return namesWithA;
 }
 
 /**
@@ -74,7 +76,13 @@ const findNamesWithA = (names = ['Bill', 'Anna']) => {
  * @desc a lényeges változás az if feltételben lesz.
  */
 const findBigPrices = (prices=[121, 41, 56, 1245]) => {
-    // 
+    const number = [];
+    prices.forEach( price => {
+        if (price > 100) {
+            number.push(price);
+        }
+    })
+    return number;
 }
 
 /**
@@ -90,6 +98,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const findEvens = (prices=[121, 41, 56, 1245]) => {
+    const number = [];
+    prices.forEach(price => {
+        if (price % 2 === 0) {
+            number.push(price);
+        }
+    })
+    return number;
+}
 
 
 /**
@@ -106,7 +123,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const findHigherSalariedEmployees = (employees=[{name: '', salary: 200000}]) => {
+    const object = [];
+    employees.forEach(employee => {
+        if (employee.salary > 300000) {
+            object.push(employee);
+        }
+    })
+    return object;
+}
 
 /**
  * 6. feladat
@@ -122,6 +147,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const findEmployeesFromMarketing = (employees=[{name: '', salary: 200000, dep: 'marketing'}]) => {
+    const object = [];
+    employees.forEach(employee => {
+        if (employee.salary > 300000 && employee.dep == 'marketing') {
+            object.push(employee);
+        }
+    })
+    return object;
+}
 
 
 /**
@@ -137,14 +171,23 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const findGermanMigrants = (citizens=[{nation: 'German', email: 'franz@gmail.com', city: 'Budapest'}]) => {
+    const object = [];
+    citizens.forEach(citizen => {
+        if (citizen.nation == 'German' && citizen.city == 'Budapest' && citizen.email.includes('gmail')) {
+            object.push(citizen);
+        }
+    })
+    return object;
+}
 
 
 export {
     copyFoodArray,
     findNamesWithA,
     findBigPrices,
-
-
-
-
+    findEvens,
+    findHigherSalariedEmployees,
+    findEmployeesFromMarketing,
+    findGermanMigrants,
 }
