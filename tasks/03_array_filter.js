@@ -40,7 +40,7 @@
  * @desc Ha segítség kell, nézd meg a példafüggvényt feljebb.
  */
 const fourCharFoods = (foods = ['milk', 'bread', 'apple']) => {
-    // 
+    return foods.filter(food => food.length == 4); 
 }
 
 /**
@@ -56,7 +56,7 @@ const fourCharFoods = (foods = ['milk', 'bread', 'apple']) => {
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
  */
 const findNamesWithA = (names = ['Bill', 'Anna', 'Andy']) => {
-    // 
+    return names.filter(name => name.toLowerCase().includes('a')); 
 }
 
 /**
@@ -68,7 +68,7 @@ const findNamesWithA = (names = ['Bill', 'Anna', 'Andy']) => {
  * @returns {number[]} - azok az elemek amelyek 1.27-szerese nagyobb mint 100.
  */
 const findBigPrices = (prices=[75, 80, 56, 1245]) => {
-    // 
+    return prices.filter(price => price * 1.27 > 100); 
 }
 
 /**
@@ -84,6 +84,9 @@ const findBigPrices = (prices=[75, 80, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const filterOdds = (prices=[121, 41, 56, 1245]) => {
+    return prices.filter(price => price % 2 === 1);
+}
 
 
 /**
@@ -100,7 +103,10 @@ const findBigPrices = (prices=[75, 80, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const filterOldCars = (cars=[{man: 'Ford', year: 2000, type: 'fiesta'}]) => {
+    const now = new Date().getFullYear();
+    return cars.filter(car => now - car.year > 10);
+}
 
 /**
  * 6. feladat
@@ -115,7 +121,10 @@ const findBigPrices = (prices=[75, 80, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const findAdultCitizens = (citizens=[{id: '33DDffgz', bd: 1987, nation: 'Hungarian'}]) => {
+    const now = new Date().getFullYear();
+    return citizens.filter(citizen => now - citizen.bd > 18 && citizen.nation == 'Hungarian');
+}
 
 /**
  * 7. feladat
@@ -129,10 +138,16 @@ const findBigPrices = (prices=[75, 80, 56, 1245]) => {
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const filterDietFoods = (dishes=[{id: 1, kcal: 101, type: 'dessert'}]) => {
+    return dishes.filter(dish => dish.kcal < 100 && dish.type == 'dessert');
+}
 
 export {
     fourCharFoods,
     findNamesWithA,
     findBigPrices,
+    filterOdds,
+    filterOldCars,
+    findAdultCitizens,
+    filterDietFoods,
 }
