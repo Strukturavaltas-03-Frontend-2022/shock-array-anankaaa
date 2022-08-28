@@ -42,8 +42,9 @@
  * karaktert amit nagybetűssé alakítottunk, majd a maradékot összefűztük vele.
  */
 const transformTitleCase = (foods = ['milk', 'bread', 'apple']) => {
-    // 
+    return foods.map(food => food.charAt(0).toUpperCase() + food.slice(1)); 
 }
+
 
 /**
  * 2. feladat
@@ -59,8 +60,16 @@ const transformTitleCase = (foods = ['milk', 'bread', 'apple']) => {
  * megfelelő prefixumot.
  */
 const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}]) => {
-    // 
+    students.map(student => {
+      if (student.gender === 'male') {
+        student.lastName = `Mr. ${student.lastName}`
+      } else {
+        student.lastName = `Ms. ${student.lastName}`
+      }
+    });
+    return students;
 }
+
 
 /**
  * 3. feladat
@@ -73,7 +82,9 @@ const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}])
  * @desc EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const getSellPrices = (prices=[75, 80, 56, 1245]) => {
+    return prices.map(price => price * 1.3);
+}
 
 /**
  * 4. feladat
@@ -89,6 +100,9 @@ const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}])
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const getStudentReports = (students=[{firstName: 'John', lastName: 'Doe', points: 20}]) => {
+    return students.map(student => `${student.firstName} ${student.lastName}, points: ${student.points}.`)
+}
 
 
 /**
@@ -107,6 +121,9 @@ const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}])
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const addStudentReports = (students = [{firstName: 'John', points: 20}]) => {
+    return students.map((student) => ({...student,result: student.points > 50 ? "passing" : "not passing",}));
+    };
 
 
 /**
@@ -124,7 +141,9 @@ const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}])
  * @desc EXPORTÁLD A FÜGGVÉNYT!
  */
 
-
+const addCorrectedIncome = (employees=[{name: 'Bob', salary: 200000, premium: 1000, corr: 0.2}]) => {
+    return employees.map((employee) => ({...employees, income: (employee.salary + employee.premium) * (1 + employee.corr)}));
+    };
 
 /**
  * 7. feladat
@@ -144,9 +163,18 @@ const addNamePrefixToStudents = (students = [{lastName: 'Doe', gender: 'male'}])
  * EXPORTÁLD A FÜGGVÉNYT!
  */
 
+const addDishPrices = (dishes=[{id: 1, kcal: 101, type: 'dessert'}]) => {
+    return dishes.map((dish) => ({
+        ...dishes, price: dish.type == 'dessert' ? Math.round(200 - dish.kcal * 1.5) : Math.round(25 + dish.kcal),}));
+};
 
 
 export {
     transformTitleCase,
     addNamePrefixToStudents,
+    getSellPrices,
+    getStudentReports,
+    addStudentReports,
+    addCorrectedIncome,
+    addDishPrices,
 }
